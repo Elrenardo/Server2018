@@ -14,7 +14,11 @@ class Config
 	public static $path;
 	//Storage path
 	const storage = 'storage';
-
+	//Module Path
+	const module = 'module';
+	//Route path
+	const route = 'route';
+	
 	//Get Srv Addr
 	public static function getURL()
 	{

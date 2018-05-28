@@ -50,14 +50,18 @@ class Path
 		$t = explode( $this->path, $_SERVER["REQUEST_URI"] );
 		$t = explode( '/', $t[1]);
 
-		//nettoyer GET POST
-		//TODO
-
 		//formatage
 		$name = $t[0];
 		array_shift($t);
 		$addr = implode('/', $t);
 		$param = $_GET;//merge $_POST;
+
+		//enlever paramettre
+		$name = explode('?',$name)[0];
+
+		//Si vide alors INDEX
+		if( $name == '')
+			$name = 'index';
 
 		//Obj route
 		return new Param( $name, $addr, $param );

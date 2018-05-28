@@ -21,7 +21,7 @@ class storage extends SRVG\Module
 
 		//fichier existe ?
 		if( !file_exists($path))
-			return $param;
+			SRVG\Error::e404();
 
 		//get header file
 		$ret =  get_headers( $file );

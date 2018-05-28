@@ -25,25 +25,34 @@ class Exec
 		for( $i=0; $i<$nb; $i++)
 		{
 			$module = $tabModule[$i];
-			$file = './module/'.$module["name"].'.php';
+			
+			$path = '';
+			if( isset($module["path"]))
+				$path = $module["path"].'/';
+
+			$file = './'.Config::module.'/'.$path.$module["name"].'.php';
 
 			//verifier si le fichier existe
 			if( !file_exists($file))
-			{
-				echo 'Module lost !';
-				exit();
-			}
+				Error::e902();
 
 			//include fichier
 			require_once( $file);
 
 			//Création de l'object chargé
 			$obj = new $module["name"]();
+
+			//get configuration module si existe
+			$configModule = null;
+			if(isset($module["config"]))
+				$configModule = $module["config"];
+
 			//Exécution
-			$rep = $obj->Start( $rep, $module["config"] );
+			$rep = $obj->Start( $rep, $configModule );
+
 			//Arret si pas de retour
 			if( is_null($rep))
-				exit();
+				Error::e200();
 		}
 	}
 }

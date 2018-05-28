@@ -19,20 +19,14 @@ class Route
 	public static function getRoute( $route )
 	{
 		//verifier JSON route file
-		$file = './route/'.$route->getName().'.json';
+		$file = './'.Config::route.'/'.$route->getName().'.json';
 		if( !file_exists($file))
-		{
-			echo '404 error';
-			exit();
-		}
+			Error::e404();
 
 		$string = file_get_contents($file);
 		$json_a = json_decode($string, true);
 		if(is_null($json_a))
-		{
-			echo "Json Error";
-			exit();
-		}
+			Error::e901();
 
 		$route->setModule( $json_a);
 	}

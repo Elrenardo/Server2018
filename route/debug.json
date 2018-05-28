@@ -6,7 +6,6 @@
 	
 	{
 		"path":"base",
-		"name":"storage",
-	 	"config":"index"
+		"name":"inputDebug"
 	}
 ]
