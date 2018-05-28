@@ -1,0 +1,26 @@
+{
+    "name"        : "Serveur2018",
+    "description" : "Framework Web",
+    "version"     : "1",
+    "license"     : "GPL v3",
+    "bugs"        : "=",
+
+    "authors":[
+        {
+            "name" : "Teysseire Guillaume",
+            "email": "teysseire@studiogoupil.fr",
+            "role" : "Developer"
+        }
+    ],
+    
+    "require":{
+        "php"                         : ">=5.6"
+    },
+
+    "autoload":
+    {
+       "psr-4":{ 
+            "SRVG\\": "vendor/elrenardo/SRVG/"
+        }
+    }
+}
