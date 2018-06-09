@@ -18,37 +18,60 @@ class Exec
 	public function run( $route )
 	{
 		$tabModule = $route->getModule();
-		$rep = $route;
 
-		//Exécute les ctrl
-		$nb = count($tabModule);
-		for( $i=0; $i<$nb; $i++)
-		{
-			$module = $tabModule[$i];
+		$b = new ExecNext( $route, $tabModule, 0 );
+		$b->next();
+	}
+}
 
-			$file = './'.Config::module.'/'.$module["name"].'.php';
 
-			//verifier si le fichier existe
-			if( !file_exists($file))
-				Error::e902();
+namespace SRVG;
+class ExecNext
+{
+	private $posi = 0;
+	private $tabModule = [];
+	private $route;
 
-			//include fichier
-			require_once( $file);
 
-			//Création de l'object chargé
-			$obj = new $module["name"]();
+	public function __construct( $_route, $_tabModule, $_nb )
+	{
+		$this->route = $_route;
+		$this->posi = $_nb;
+		$this->tabModule = $_tabModule;
+	}
 
-			//get configuration module si existe
-			$configModule = null;
-			if(isset($module["config"]))
-				$configModule = $module["config"];
 
-			//Exécution
-			$rep = $obj->Start( $rep, $configModule );
+	public function next()
+	{
+		//limite verification
+		if( $this->posi == count($this->tabModule))
+			return;
 
-			//Arret si pas de retour
-			if( is_null($rep))
-				Error::e200();
-		}
+		//get module
+		$module = $this->tabModule[ $this->posi ];
+
+		//fichier lien
+		$file = './'.Config::module.'/'.$module["name"].'.php';
+
+		//verifier si le fichier existe
+		if( !file_exists($file))
+			Error::e902();
+
+		//include fichier
+		require_once( $file);
+
+		//Création de l'object chargé
+		$obj = new $module["name"]();
+
+		//get configuration module si existe
+		$configModule = null;
+		if(isset($module["config"]))
+			$configModule = $module["config"];
+
+
+		$b = new ExecNext( $this->route, $this->tabModule, $this->posi+1 );
+
+		//Exécution
+		$obj->Start( $this->route, $configModule, $b );
 	}
 }

@@ -8,7 +8,7 @@ class storage extends SRVG\Module
 	const default_file = 'index.html';
 	
 	//Start fonction
-	public function Start( $param, $config )
+	public function Start( $param, $config, $next )
 	{
 		//Verifier le default file
 		$fichier = $param->getUAddr();
@@ -33,6 +33,6 @@ class storage extends SRVG\Module
 		print file_get_contents( $path );
 
 		//ok
-		return $param;
+		$next->next();
 	}
 }

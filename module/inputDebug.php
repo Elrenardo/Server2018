@@ -7,7 +7,7 @@ class inputDebug extends SRVG\Module
 
 	
 	//Start fonction
-	public function Start( $param, $config )
+	public function Start( $param, $config, $next )
 	{
 
 		print '<pre>';
@@ -19,6 +19,6 @@ class inputDebug extends SRVG\Module
 		print '</pre>';
 
 		//ok
-		return $param;
+		$next->next();
 	}
 }
