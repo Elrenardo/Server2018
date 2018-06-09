@@ -20,6 +20,8 @@ class Route
 	{
 		//verifier JSON route file
 		$file = './'.Config::route.'/'.$route->getName().'.json';
+
+		//fichier existe
 		if( !file_exists($file))
 			Error::e404();
 

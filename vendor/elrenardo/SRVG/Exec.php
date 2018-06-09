@@ -25,12 +25,8 @@ class Exec
 		for( $i=0; $i<$nb; $i++)
 		{
 			$module = $tabModule[$i];
-			
-			$path = '';
-			if( isset($module["path"]))
-				$path = $module["path"].'/';
 
-			$file = './'.Config::module.'/'.$path.$module["name"].'.php';
+			$file = './'.Config::module.'/'.$module["name"].'.php';
 
 			//verifier si le fichier existe
 			if( !file_exists($file))

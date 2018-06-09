@@ -63,6 +63,13 @@ class Path
 		if( $name == '')
 			$name = 'index';
 
+		//Si contient un "." alors fichier INDEX
+		if( strpos($name,'.') !== false)
+		{
+			$addr = $name;
+			$name = 'index';
+		}
+
 		//Obj route
 		return new Param( $name, $addr, $param );
 	}

@@ -1,11 +1,9 @@
 [
 	{
-		"path":"base",
 		"name":"security"
 	},
 	
 	{
-		"path":"base",
 		"name":"storage",
 	 	"config":"index"
 	}
