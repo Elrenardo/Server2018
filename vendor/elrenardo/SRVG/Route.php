@@ -19,7 +19,7 @@ class Route
 	public static function getRoute( $route )
 	{
 		//verifier JSON route file
-		$file = './'.Config::route.'/'.$route->getName().'.json';
+		$file = './'.Config::route.'/'.$route->getName().'.'.Config::routeExt;
 
 		//fichier existe
 		if( !file_exists($file))

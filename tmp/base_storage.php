@@ -1,8 +1,10 @@
 <?php
 
 
-class storage extends SRVG\Module
+class base_storage extends SRVG\Module
 {
+	//Storage path
+	const storage = 'storage';
 
 	//Default file
 	const default_file = 'index.html';
@@ -13,11 +15,16 @@ class storage extends SRVG\Module
 		//Verifier le default file
 		$fichier = $param->getUAddr();
 		if( $fichier == '')
-			$fichier = storage::default_file;
+			$fichier = base_storage::default_file;
+
+		//verif config
+		if( empty($config))
+			$config = SRVG\Config::bundle;
+
 
 		//Build Addr
-		$file = 'http://'.SRVG\Config::getStorageUrl().$param->getName().'/'.$fichier;
-		$path = './'.SRVG\Config::storage.'/'.$param->getName().'/'.$fichier;
+		$file = 'http://'.SRVG\Config::getURL().'/'.$config.'/'.$param->getName().'/'.$fichier;
+		$path = './'.$config.'/'.$param->getName().'/'.$fichier;
 
 		//fichier existe ?
 		if( !file_exists($path))

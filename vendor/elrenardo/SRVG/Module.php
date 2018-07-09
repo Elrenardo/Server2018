@@ -16,10 +16,9 @@ class Module
 	* @param $param = SRVG/Param
 	* @return SRVG/Param
 	*/
-	public function Start( $param, $config )
+	public function Start( $param, $config, $next )
 	{
-
-		//Retourn paramettre
-		return $route;
+		//next module
+		$next->next();
 	}
 }

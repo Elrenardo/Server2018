@@ -12,22 +12,18 @@ class Config
 {
 	//Get path build path.php
 	public static $path;
-	//Storage path
-	const storage = 'storage';
 	//Module Path
-	const module = 'module';
+	const module = 'tmp';
 	//Route path
-	const route = 'route';
+	const route = 'tmp';
+	//Route extension file
+	const routeExt = 'route';
+	//Bundle Dir
+	const bundle = 'bundle';
 	
 	//Get Srv Addr
 	public static function getURL()
 	{
 		return $_SERVER['HTTP_HOST'].'/'.Config::$path;
-	}
-
-	//Get Url Storage
-	public static function getStorageUrl()
-	{
-		return Config::getURL().'/'.Config::storage.'/';
 	}
 }
