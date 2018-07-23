@@ -20,6 +20,14 @@ class Error
 		exit();
 	}
 
+	public static function e400()
+	{
+		$err = $_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request';
+		header($err, true, 400);
+		print($err);
+		exit();
+	}
+
 	public static function e403()
 	{
 		$err = $_SERVER['SERVER_PROTOCOL'] . ' 403 Not Found';

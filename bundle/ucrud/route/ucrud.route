@@ -1,0 +1,14 @@
+[
+	{
+		"name":"base_session"
+	},
+	{
+		"name":"base_security"
+	},
+	{
+		"name":"base_bdd"
+	},
+	{
+		"name":"ucrud_main"
+	}
+]

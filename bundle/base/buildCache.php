@@ -17,10 +17,14 @@ $PATH_TMP  = '../../';
 
 
 echo 'Build cache module: <br/>';
-foreach (glob_recursive("module/*.php") as $filename)
+$file = scandir($PATH_FIND);
+for($i=0; $i<count($file); $i++)
 {
-	echo 'Add module => '.basename($filename).'<br/>';
-	copy($filename,  $PATH_TMP.'tmp/'.basename($filename));
+	foreach (glob_recursive($PATH_FIND.$file[$i]."/module/*.php") as $filename)
+	{
+		echo 'Add module => '.basename($filename).'<br/>';
+		copy($filename,  $PATH_TMP.'tmp/'.basename($filename));
+	}
 }
 
 

@@ -20,11 +20,29 @@ class ComposerStaticInitfe7963252d0ca59a280fe107224f03ec
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'V' => 
+        array (
+            'Viocon' => 
+            array (
+                0 => __DIR__ . '/..' . '/usmanhalalit/viocon/src',
+            ),
+        ),
+        'P' => 
+        array (
+            'Pixie' => 
+            array (
+                0 => __DIR__ . '/..' . '/usmanhalalit/pixie/src',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitfe7963252d0ca59a280fe107224f03ec::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitfe7963252d0ca59a280fe107224f03ec::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfe7963252d0ca59a280fe107224f03ec::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
