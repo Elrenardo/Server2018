@@ -70,6 +70,9 @@ class Path
 			$name = 'index';
 		}
 
+		//Uddr, enlever le ?
+		$addr = explode('?', $addr)[0];
+
 		//Obj route
 		return new Param( $name, $addr, $param );
 	}

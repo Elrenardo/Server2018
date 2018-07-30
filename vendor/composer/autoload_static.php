@@ -6,10 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitfe7963252d0ca59a280fe107224f03ec
 {
+    public static $files = array (
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'SRVG\\' => 5,
+        ),
+        'M' => 
+        array (
+            'MongoDB\\' => 8,
         ),
     );
 
@@ -17,6 +25,10 @@ class ComposerStaticInitfe7963252d0ca59a280fe107224f03ec
         'SRVG\\' => 
         array (
             0 => __DIR__ . '/..' . '/elrenardo/SRVG',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
         ),
     );
 

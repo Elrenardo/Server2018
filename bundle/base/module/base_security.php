@@ -24,6 +24,7 @@ class base_security extends SRVG\Module
 	//Start fonction
 	public function Start( $param, $config, $next )
 	{
+
 		base_security::$_GET      = $this->secu( $_GET);
 		base_security::$_COOKIE   = $this->secu( $_COOKIE);
 		base_security::$_POST     = $this->secu( $_POST);

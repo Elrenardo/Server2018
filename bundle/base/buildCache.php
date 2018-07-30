@@ -12,8 +12,31 @@ function glob_recursive($pattern, $flags = 0)
 }
 
 
+ function rrmdir($dir) {
+   if (is_dir($dir)) {
+     $objects = scandir($dir);
+     foreach ($objects as $object) {
+       if ($object != "." && $object != "..") {
+         if (filetype($dir."/".$object) == "dir") rmdir($dir."/".$object); else unlink($dir."/".$object);
+       }
+     }
+     reset($objects);
+     rmdir($dir);
+   }
+ }
+ 
+
+
+
+
+
 $PATH_FIND = '../';
-$PATH_TMP  = '../../';
+$PATH_TMP  = '../../tmp/';
+
+//suppresion cache
+echo 'Suppression cache ! <br/><br/>';
+rrmdir($PATH_TMP);
+mkdir($PATH_TMP);
 
 
 echo 'Build cache module: <br/>';
@@ -23,7 +46,7 @@ for($i=0; $i<count($file); $i++)
 	foreach (glob_recursive($PATH_FIND.$file[$i]."/module/*.php") as $filename)
 	{
 		echo 'Add module => '.basename($filename).'<br/>';
-		copy($filename,  $PATH_TMP.'tmp/'.basename($filename));
+		copy($filename,  $PATH_TMP.basename($filename));
 	}
 }
 
@@ -32,5 +55,5 @@ echo '<br/><br/>Build cache route: <br/>';
 foreach (glob_recursive($PATH_FIND."*.route") as $filename)
 {
 	echo 'Add route => '.basename($filename).'<br/>';
-	copy($filename,  $PATH_TMP.'tmp/'.basename($filename));
+	copy($filename,  $PATH_TMP.basename($filename));
 }

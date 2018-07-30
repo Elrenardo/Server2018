@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SRVG\\' => array($vendorDir . '/elrenardo/SRVG'),
+    'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
 );

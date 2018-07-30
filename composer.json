@@ -15,7 +15,8 @@
     
     "require":{
         "php"                         : ">=5.6",
-        "usmanhalalit/pixie"          : "2.*@dev"
+        "usmanhalalit/pixie"          : "2.*@dev",
+        "mongodb/mongodb": "^1.4"
     },
 
     "autoload":
