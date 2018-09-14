@@ -30,7 +30,7 @@ class Error
 
 	public static function e403()
 	{
-		$err = $_SERVER['SERVER_PROTOCOL'] . ' 403 Not Found';
+		$err = $_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden';
 		header($err, true, 403);
 		print($err);
 		exit();
