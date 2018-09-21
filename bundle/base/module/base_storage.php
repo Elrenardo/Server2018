@@ -20,11 +20,15 @@ class base_storage extends SRVG\Module
 		//verif config
 		if( empty($config))
 			$config = SRVG\Config::bundle.'/'.$param->getName();
+		//else
+		//	$config = SRVG\Config::bundle.'/'.$config;
 
 
 		//Build Addr
-		$file = 'http://'.SRVG\Config::getURL().'/'.$config.'/'.$param->getName().'/'.$fichier;
+		$file = 'http://'.SRVG\Config::getURL().$config.'/'.$fichier;
 		$path = './'.$config.'/'.$fichier;
+
+		//echo $file.'<br/>'.$path.'<br/>';
 
 		//fichier existe ?
 		if( !file_exists($path))

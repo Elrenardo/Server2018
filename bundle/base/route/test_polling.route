@@ -5,9 +5,5 @@
 	
 	{
 		"name":"base_longPolling"
-	},
-
-	{
-		"name":"base_date"
 	}
 ]
