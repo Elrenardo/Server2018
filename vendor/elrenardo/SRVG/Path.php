@@ -23,7 +23,7 @@ class Path
 		$buffer = substr($buffer,1);//enlever le premier "/"
 		$buffer = $buffer.'/';
 
-		$this->path =  $buffer;
+		$this->path =  strtolower($buffer);
 		//global
 		Config::$path = $buffer;
 	}
