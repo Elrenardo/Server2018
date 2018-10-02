@@ -5,7 +5,7 @@ class base_bdd extends SRVG\Module
 {
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		// Create a connection, once only.
 		$config = array(

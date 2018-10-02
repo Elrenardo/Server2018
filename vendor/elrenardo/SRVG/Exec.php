@@ -3,15 +3,13 @@
  * @author    Teysseire Guillaume
  * @version   1.0
  * @date      26/05/2018
- * @update    26/05/2018
+ * @update    02/10/2018
  * @brief     SRVG/Exec execution des module
  */
 
 namespace SRVG;
 class Exec
 {
-
-
 	/**
 	* @brief execute module
 	*/
@@ -50,7 +48,7 @@ class ExecNext
 		//get module
 		$module = $this->tabModule[ $this->posi ];
 
-		//fichier lien
+		//fichier lien module
 		$file = './'.Config::module.'/'.$module["name"].'.php';
 
 		//verifier si le fichier existe
@@ -67,7 +65,6 @@ class ExecNext
 		$configModule = null;
 		if(isset($module["config"]))
 			$configModule = $module["config"];
-
 
 		$b = new ExecNext( $this->route, $this->tabModule, $this->posi+1 );
 

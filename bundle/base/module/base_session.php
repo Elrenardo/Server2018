@@ -13,7 +13,7 @@ class base_session extends SRVG\Module
 	}
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		//verificartion des groupes
 		if(!empty($config))

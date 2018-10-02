@@ -5,7 +5,7 @@ class base_inputDebug extends SRVG\Module
 {
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 
 		print '<fieldset><legend>INPUT VAR</legend># GET:<pre>';

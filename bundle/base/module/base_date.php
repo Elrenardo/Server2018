@@ -5,7 +5,7 @@ class base_date extends SRVG\Module
 {
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		print date("Y-m-d H:i:s");
 		//ok

@@ -22,7 +22,7 @@ class base_security extends SRVG\Module
 	}
 
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 
 		base_security::$_GET      = $this->secu( $_GET);

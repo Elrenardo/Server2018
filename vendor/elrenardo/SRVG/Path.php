@@ -3,7 +3,7 @@
  * @author    Teysseire Guillaume
  * @version   1.0
  * @date      26/05/2018
- * @update    26/05/2018
+ * @update    02/10/2018
  * @brief     SRVG/Path gestion des paths fichier
  */
 
@@ -23,7 +23,7 @@ class Path
 		$buffer = substr($buffer,1);//enlever le premier "/"
 		$buffer = $buffer.'/';
 
-		$this->path =  strtolower($buffer);
+		$this->path =  $buffer;
 		//global
 		Config::$path = $buffer;
 	}
@@ -45,7 +45,7 @@ class Path
 	* @brief renvoi un array contenant les infos de la route
 	* @return string;
 	*/
-	public function getRouteConfig()
+	public function getRoute()
 	{
 		$t = explode( $this->path, $_SERVER["REQUEST_URI"] );
 		$t = explode( '/', $t[1]);
@@ -54,7 +54,6 @@ class Path
 		$name = $t[0];
 		array_shift($t);
 		$addr = implode('/', $t);
-		$param = $_GET;//merge $_POST;
 
 		//enlever paramettre
 		$name = explode('?',$name)[0];
@@ -72,8 +71,9 @@ class Path
 
 		//Uddr, enlever le ?
 		$addr = explode('?', $addr)[0];
+		echo $addr;
 
 		//Obj route
-		return new Param( $name, $addr, $param );
+		return new Route( $name, $addr );
 	}
 }

@@ -3,13 +3,23 @@
  * @author    Teysseire Guillaume
  * @version   1.0
  * @date      28/05/2018
- * @update    28/05/2018
+ * @update    02/10/2018
  * @brief     SRVG/Error gestion des erruer
  */
 
 namespace SRVG;
 class Error
 {
+
+	public static function set($code, $msg )
+	{
+		$err = $_SERVER['SERVER_PROTOCOL'].' '.$code.' '.$msg;
+		header($err, true, $code);
+		print($err);
+		
+		exit();
+	}
+
 
 	public static function e200()
 	{

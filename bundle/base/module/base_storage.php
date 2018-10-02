@@ -10,16 +10,16 @@ class base_storage extends SRVG\Module
 	const default_file = 'index.html';
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		//Verifier le default file
-		$fichier = $param->getUAddr();
+		$fichier = $route->getUAddr();
 		if( $fichier == '')
 			$fichier = base_storage::default_file;
 
 		//verif config
 		if( empty($config))
-			$config = SRVG\Config::bundle.'/'.$param->getName();
+			$config = SRVG\Config::bundle.'/'.$route->getName();
 		//else
 		//	$config = SRVG\Config::bundle.'/'.$config;
 

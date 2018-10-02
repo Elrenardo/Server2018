@@ -14,7 +14,7 @@ class base_mongodb extends SRVG\Module
 	public static $datatable;
 	
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		// Create a connection, once only.
 		base_mongodb::$driver = new MongoDB\Client("mongodb://localhost:27017");

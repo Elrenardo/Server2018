@@ -7,10 +7,10 @@ class base_noDuplicate extends SRVG\Module
 	const b_noDup = 'b_noDup';
 
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		//data
-		$name = base_noDuplicate::b_noDup.$param->getName();
+		$name = base_noDuplicate::b_noDup.$route->getName();
 		$json = json_encode (base_security::$_ALLINPUT);
 
 		//verifier si ca correspond

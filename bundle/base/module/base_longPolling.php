@@ -5,13 +5,13 @@ class base_longPolling extends SRVG\Module
 {
 
 	//Start fonction
-	public function Start( $param, $config, $next )
+	public function Start( $route, $config, $next )
 	{
 		// set php runtime to unlimited
 		set_time_limit(0);
 
 		// where does the data come from ? In real world this would be a SQL query or something
-		$data_source_file = './tmp/base_longPolling_'.($param->getName()).'.txt';
+		$data_source_file = './tmp/base_longPolling_'.($route->getName()).'.txt';
 		if( !empty($config))
 			$data_source_file = $config;
 
