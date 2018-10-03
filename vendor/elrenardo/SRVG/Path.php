@@ -71,7 +71,6 @@ class Path
 
 		//Uddr, enlever le ?
 		$addr = explode('?', $addr)[0];
-		echo $addr;
 
 		//Obj route
 		return new Route( $name, $addr );
