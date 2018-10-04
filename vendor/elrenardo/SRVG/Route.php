@@ -68,7 +68,7 @@ class Route
 	* @param $name string
 	* @param $value void
 	*/
-	public function addDate( $name, $value )
+	public function addData( $name, $value )
 	{
 		$this->data[ $name ] = $value;
 	}

@@ -4,8 +4,8 @@ include 'path.php';
 //suppresion cache
 echo 'Suppression cache ! <br/><br/>';
 //tout supprimé
-rrmdir($PATH_TMP.'src');
-rrmdir($PATH_TMP);
+if(file_exists($PATH_TMP))
+	removeDirectory($PATH_TMP);
 
 //cration dossier cache
 mkdir($PATH_TMP);
@@ -29,9 +29,19 @@ foreach (glob_recursive($PATH_FIND."/bundle/*/route/*.route") as $filename)
 }
 
 
+
+
 echo '<br/><br/>## Build src cache: <br/>';
-foreach (glob_recursive($PATH_FIND."/bundle/*/src/*.php") as $filename)
+$lien = $PATH_FIND."/bundle/";
+$liste = scandir($lien);
+$nb = count($liste);
+for( $i=0; $i<$nb; $i++)
 {
-	echo 'Add src => '.basename($filename).'<br/>';
-	copy($filename,  $PATH_TMP.'src/'.basename($filename));
+	$b = $liste[$i];
+	if( ($b!='.') && ($b!='..') )
+	if( file_exists($lien.$b.'/src/'))
+	{
+		echo $b.'<br/>';
+		recurse_copy($lien.$b.'/src/',  $PATH_TMP.'src/' );
+	}
 }

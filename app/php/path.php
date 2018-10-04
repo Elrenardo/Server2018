@@ -28,3 +28,31 @@ function glob_recursive($pattern, $flags = 0)
      rmdir($dir);
    }
  }
+
+
+
+ function recurse_copy($src,$dst) { 
+    $dir = opendir($src); 
+    @mkdir($dst); 
+    while(false !== ( $file = readdir($dir)) ) { 
+        if (( $file != '.' ) && ( $file != '..' )) { 
+            if ( is_dir($src . '/' . $file) ) { 
+                recurse_copy($src . '/' . $file,$dst . '/' . $file); 
+            } 
+            else { 
+                copy($src . '/' . $file,$dst . '/' . $file); 
+            } 
+        } 
+    } 
+    closedir($dir); 
+} 
+
+
+function removeDirectory($path) {
+  $files = glob($path . '/*');
+  foreach ($files as $file) {
+    is_dir($file) ? removeDirectory($file) : unlink($file);
+  }
+  rmdir($path);
+  return;
+}
