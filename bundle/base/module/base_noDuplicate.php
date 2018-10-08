@@ -9,6 +9,14 @@ class base_noDuplicate extends SRVG\Module
 	//Start fonction
 	public function Start( $route, $config, $next )
 	{
+		//si pas d eparam on passe
+		if(count(base_security::$_ALLINPUT) == 0 )
+		{
+			//ok
+			$next->next();
+			exit();
+		}
+
 		//data
 		$name = base_noDuplicate::b_noDup.$route->getName();
 		$json = json_encode (base_security::$_ALLINPUT);

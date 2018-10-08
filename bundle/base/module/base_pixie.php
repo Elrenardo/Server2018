@@ -1,7 +1,7 @@
 <?php
 
 
-class base_bdd extends SRVG\Module
+class base_pixie extends SRVG\Module
 {
 	
 	//Start fonction
